@@ -59,9 +59,12 @@ const solanaMetadata = {
 
   
 
+const valueOfAll = 10
+
+
 var layerConfigurations = [
   {
-    growEditionSizeTo: 1000,
+    growEditionSizeTo: valueOfAll,
     layersOrder: [
       { name: "Fourth/Zero" },
       { name: "Fourth/One" },
@@ -148,7 +151,8 @@ const background = {
   default: "#000000",
 };
 
-const extraMetadata = {};
+const extraMetadata = {
+};
 
 const rarityDelimiter = "#";
 
@@ -189,5 +193,6 @@ module.exports = {
   solanaMetadata,
   gif,
   preview_gif,
+  valueOfAll,
 };
 

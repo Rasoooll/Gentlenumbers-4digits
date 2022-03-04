@@ -5,6 +5,7 @@ const sha1 = require(`${basePath}/node_modules/sha1`);
 const { createCanvas, loadImage } = require(`${basePath}/node_modules/canvas`);
 const buildDir = `${basePath}/build`;
 const layersDir = `${basePath}/layers`;
+
 const {
   format,
   baseUri,
@@ -21,6 +22,7 @@ const {
   network,
   solanaMetadata,
   gif,
+  valueOfAll
 } = require(`${basePath}/src/config.js`);
 var {
 
@@ -281,7 +283,7 @@ function numbersInOrder (i){
 
     x = [
       {
-        growEditionSizeTo: 1000,
+        growEditionSizeTo: valueOfAll,
         layersOrder: [
           { name: fourthFolders[fourthNumber] },
           { name: thirdFolders[thirdNumber] },
