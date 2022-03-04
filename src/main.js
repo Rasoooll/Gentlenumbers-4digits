@@ -11,7 +11,7 @@ const {
   description,
   background,
   uniqueDnaTorrance,
-  layerConfigurations,
+  // layerConfigurations,
   rarityDelimiter,
   shuffleLayerConfigurations,
   debugLogs,
@@ -21,6 +21,11 @@ const {
   network,
   solanaMetadata,
   gif,
+} = require(`${basePath}/src/config.js`);
+var {
+
+  layerConfigurations,
+
 } = require(`${basePath}/src/config.js`);
 const canvas = createCanvas(format.width, format.height);
 const ctx = canvas.getContext("2d");
@@ -260,6 +265,34 @@ const filterDNAOptions = (_dna) => {
 
   return filteredDNA.join(DNA_DELIMITER);
 };
+function numbersInOrder (i){
+  const fourthFolders =["Fourth/Zero" ,"Fourth/One" ,"Fourth/Two" , "Fourth/Three" , "Fourth/four" ,
+   "Fourth/Five" , "Fourth/Six" , "Fourth/Seven" , "Fourth//Eight" , "Fourth/Nine"];
+  const thirdFolders =["Third/Zero" ,"Third/One" ,"Third/Two" , "Third/Three" , "Third/four" ,
+   "Third/Five" , "Third/Six" , "Third/Seven" , "Third/Eight" , "Third/Nine"];
+  const secondFolders =["Second/Zero" ,"Second/One" ,"Second/Two" , "Second/Three" , "Second/four" ,
+   "Second/Five" , "Second/Six" , "Second/Seven" , "Second/Eight" , "Second/Nine"];
+  const firstFolders =["First/Zero" ,"First/One" ,"First/Two" , "First/Three" , "First/four" ,
+   "First/Five" , "First/Six" , "First/Seven" , "First/Eight" , "First/Nine"];
+  var fourthNumber = Math.floor(i/1000);
+  var thirdNumber = Math.floor ( (i%1000)/100);
+  var secondNumber = Math.floor(((i%1000)%100)/10);
+  var firstNumber = Math.floor (i%10);
+
+    x = [
+      {
+        growEditionSizeTo: 1000,
+        layersOrder: [
+          { name: fourthFolders[fourthNumber] },
+          { name: thirdFolders[thirdNumber] },
+          { name: secondFolders[secondNumber] },
+          { name: firstFolders[firstNumber] },
+        ],
+      },
+    ];
+  return x ;
+} 
+
 
 /**
  * Cleaning function for DNA strings. When DNA strings include an option, it
@@ -339,11 +372,13 @@ const startCreating = async () => {
   let editionCount = 1;
   let failedCount = 0;
   let abstractedIndexes = [];
+  let j = 0;
   for (
     let i = network == NETWORK.sol ? 0 : 1;
     i <= layerConfigurations[layerConfigurations.length - 1].growEditionSizeTo;
-    i++
+    i++ 
   ) {
+    j = i ;
     abstractedIndexes.push(i);
   }
   if (shuffleLayerConfigurations) {
@@ -353,12 +388,13 @@ const startCreating = async () => {
     ? console.log("Editions left to create: ", abstractedIndexes)
     : null;
   while (layerConfigIndex < layerConfigurations.length) {
-    const layers = layersSetup(
-      layerConfigurations[layerConfigIndex].layersOrder
-    );
     while (
       editionCount <= layerConfigurations[layerConfigIndex].growEditionSizeTo
     ) {
+      layerConfigurations = numbersInOrder (editionCount-1);
+      layers = layersSetup(
+      layerConfigurations[layerConfigIndex].layersOrder
+    );
       let newDna = createDna(layers);
       if (isDnaUnique(dnaList, newDna)) {
         let results = constructLayerToDna(newDna, layers);
@@ -386,6 +422,7 @@ const startCreating = async () => {
             drawBackground();
           }
           renderObjectArray.forEach((renderObject, index) => {
+          
             drawElement(
               renderObject,
               index,

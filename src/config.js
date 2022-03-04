@@ -22,19 +22,92 @@ const solanaMetadata = {
 };
 
 // If you have selected Solana then the collection starts from 0 automatically
-const layerConfigurations = [
+
+
+
+// function numbersInOrder (i){
+//   const fourthFolders =["Fourth\\Zero" ,"Fourth\\One" ,"Fourth\\Two" , "Fourth\\Three" , "Fourth\\four" ,
+//    "Fourth\\Five" , "Fourth\\Six" , "Fourth\\Seven" , "Fourth\\Eight" , "Fourth\\Nine"];
+//   const thirdFolders =["Third\\Zero" ,"Third\\One" ,"Third\\Two" , "Third\\Three" , "Third\\four" ,
+//    "Third\\Five" , "Third\\Six" , "Third\\Seven" , "Third\\Eight" , "Third\\Nine"];
+//   const secondFolders =["Second\\Zero" ,"Second\\One" ,"Second\\Two" , "Second\\Three" , "Second\\four" ,
+//    "Second\\Five" , "Second\\Six" , "Second\\Seven" , "Second\\Eight" , "Second\\Nine"];
+//   const firstFolders =["First\\Zero" ,"First\\One" ,"First\\Two" , "First\\Three" , "First\\four" ,
+//    "First\\Five" , "First\\Six" , "First\\Seven" , "First\\Eight" , "First\\Nine"];
+//   var fourthNumber = Math.floor(i/1000);
+//   var thirdNumber = Math.floor ( (i%100)/100);
+//   var secondNumber = Math.floor(((i%100)%1000)/10);
+//   var firstNumber = Math.floor (i%10);
+
+//     x = [
+//       {
+//         growEditionSizeTo: 1000,
+//         layersOrder: [
+//           { name: fourthFolders[fourthNumber] },
+//           { name: thirdFolders[thirdNumber] },
+//           { name: secondFolders[secondNumber] },
+//           { name: firstFolders[firstNumber] },
+//         ],
+//       },
+//     ];
+//   return x ;
+// } 
+
+
+// var layerConfigurations = numbersInOrder ();
+
+
+  
+
+var layerConfigurations = [
   {
     growEditionSizeTo: 1000,
     layersOrder: [
-      { name: "Fourth" },
-      { name: "Third" },
-      { name: "Second" },
-      { name: "First" },
+      { name: "Fourth/Zero" },
+      { name: "Fourth/One" },
+      { name: "Fourth/Two" },
+      { name: "Fourth/Three" },
+      { name: "Fourth/four" },
+      { name: "Fourth/Five" },
+      { name: "Fourth/Six" },
+      { name: "Fourth/Seven" },
+      { name: "Fourth//Eight" },
+      { name: "Fourth/Nine" },
+      { name: "Third/Zero" },
+      { name: "Third/One" },
+      { name: "Third/Two" },
+      { name: "Third/Three" },
+      { name: "Third/four" },
+      { name: "Third/Five" },
+      { name: "Third/Six" },
+      { name: "Third/Seven" },
+      { name: "Third/Eight" },
+      { name: "Third/Nine" },
+      { name: "Second/Zero" },
+      { name: "Second/One" },
+      { name: "Second/Two" },
+      { name: "Second/Three" },
+      { name: "Second/four" },
+      { name: "Second/Five" },
+      { name: "Second/Six" },
+      { name: "Second/Seven" },
+      { name: "Second/Eight" },
+      { name: "Second/Nine" },
+      { name: "First/Zero" },
+      { name: "First/One" },
+      { name: "First/Two" },
+      { name: "First/Three" },
+      { name: "First/four" },
+      { name: "First/Five" },
+      { name: "First/Six" },
+      { name: "First/Seven" },
+      { name: "First/Eight" },
+      { name: "First/Nine" },
     ],
   },
 ];
 
-const shuffleLayerConfigurations = false;
+const shuffleLayerConfigurations = true;
 
 const debugLogs = false;
 
@@ -117,3 +190,4 @@ module.exports = {
   gif,
   preview_gif,
 };
+
